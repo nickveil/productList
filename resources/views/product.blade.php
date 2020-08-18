@@ -73,21 +73,35 @@
     </head>
     
     <body>
-        <div class="flex-center position-ref full-height">
+        {{-- <div class="flex-center position-ref full-height"> --}}
             <div class="container">
-                
-                <div class="jumbotron">
-                    <h1 class="display-4">Product List</h1>
-                    <p class="lead">The complete list of products we offer.</p>
-                    <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                    <a class="btn btn-primary btn-lg" href="{{ url('/home') }}" role="button">Learn more</a>
-                  </div>
-
+                <div class="row">
+                    
+                    <div class="jumbotron">
+                        <h1 class="display-1">Product List</h1>
+                        <p class="lead">The complete list of products we offer.</p>
+                        <hr class="my-4">
+                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                        <a class="btn btn-primary btn-lg" href="{{ url('/home') }}" role="button">Learn more</a>
+                    </div>
+    
                 </div>
-                
-                @section('products')
+            
+                <div class="row">
+                    @foreach($products as $product)
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                            <img src="{{$product->image}}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">{{$product->name}}</h5>
+                                <p class="card-text">{{$product->description}}</p>
+                                <p>Quantity: {{$product->count}}  Price: {{$product->price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-        </div>
+        {{-- </div> --}}
     </body>
 </html>
