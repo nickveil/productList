@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->integer('count');
             $table->integer('price');
             $table->string('description');
+            $table->string('image');
             $table->softDeletes();
             $table->timestamps();
         });
